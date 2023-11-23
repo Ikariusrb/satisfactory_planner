@@ -70,3 +70,5 @@ gem "devise", "~> 4.9"
 gem "activeadmin", "~> 3.1"
 
 gem "annotate", "~> 3.2"
+
+gem "mechanize", "~> 2.9"
