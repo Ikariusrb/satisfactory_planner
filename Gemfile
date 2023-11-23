@@ -68,3 +68,5 @@ gem "sassc", "~> 2.4"
 gem "devise", "~> 4.9"
 
 gem "activeadmin", "~> 3.1"
+
+gem "annotate", "~> 3.2"
