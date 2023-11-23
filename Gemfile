@@ -66,3 +66,5 @@ gem "rspec-rails", "~> 6.1"
 gem "sassc", "~> 2.4"
 
 gem "devise", "~> 4.9"
+
+gem "activeadmin", "~> 3.1"
