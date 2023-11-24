@@ -1,0 +1,2 @@
+class ProductionStage < ApplicationRecord
+end

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @production_stage %>
+
+<div>
+  <%= link_to "Edit this production stage", edit_production_stage_path(@production_stage) %> |
+  <%= link_to "Back to production stages", production_stages_path %>
+
+  <%= button_to "Destroy this production stage", @production_stage, method: :delete %>
+</div>

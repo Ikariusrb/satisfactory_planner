@@ -1,0 +1,17 @@
+<%= form_with(model: production_stage) do |form| %>
+  <% if production_stage.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(production_stage.errors.count, "error") %> prohibited this production_stage from being saved:</h2>
+
+      <ul>
+        <% production_stage.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

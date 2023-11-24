@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Production stages</h1>
+
+<div id="production_stages">
+  <% @production_stages.each do |production_stage| %>
+    <%= render production_stage %>
+    <p>
+      <%= link_to "Show this production stage", production_stage %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New production stage", new_production_stage_path %>
