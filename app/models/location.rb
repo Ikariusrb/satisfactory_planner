@@ -6,10 +6,12 @@
 #  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  plan_id    :bigint           not null
 #
 # Indexes
 #
-#  unique_locations  (name) UNIQUE
+#  index_locations_on_plan_id           (plan_id)
+#  index_locations_on_plan_id_and_name  (plan_id,name) UNIQUE
 #
 class Location < ApplicationRecord
 end
