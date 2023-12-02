@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_02_175648) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_02_180026) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_02_175648) do
     t.index ["admin_user_id", "name"], name: "index_plans_on_admin_user_id_and_name", unique: true
     t.index ["admin_user_id"], name: "index_plans_on_admin_user_id"
     t.index ["name"], name: "unique_plans", unique: true
+  end
+
+  create_table "production_stage_connections", force: :cascade do |t|
+    t.bigint "source_id"
+    t.bigint "destination_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_production_stage_connections_on_destination_id"
+    t.index ["source_id"], name: "index_production_stage_connections_on_source_id"
   end
 
   create_table "production_stage_inputs", force: :cascade do |t|
