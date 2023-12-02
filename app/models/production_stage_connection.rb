@@ -1,0 +1,2 @@
+class ProductionStageConnection < ApplicationRecord
+end
