@@ -16,4 +16,8 @@
 #  index_production_stages_on_plan_id_and_name  (plan_id,name) UNIQUE
 #
 class ProductionStage < ApplicationRecord
+  belongs_to :plan
+  belongs_to :location
+  has_many :production_stage_inputs
+  has_many :production_stage_outputs
 end

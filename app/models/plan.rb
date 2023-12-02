@@ -15,4 +15,5 @@
 #  unique_plans                           (name) UNIQUE
 #
 class Plan < ApplicationRecord
+  belongs_to :admin_user
 end
