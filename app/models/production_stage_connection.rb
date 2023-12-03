@@ -14,6 +14,6 @@
 #  index_production_stage_connections_on_source_id       (source_id)
 #
 class ProductionStageConnection < ApplicationRecord
-  belongs_to :production_stage_output, foreign_key: :source_id
-  belongs_to :production_stage_input, foreign_key: :destination_id
+  belongs_to :source, class_name: 'ProductionStageOutput'
+  belongs_to :destination, class_name: 'ProductionStageInput'
 end

@@ -15,4 +15,6 @@
 #  index_production_stage_inputs_on_production_stage_id  (production_stage_id)
 #
 class ProductionStageInput < ApplicationRecord
+  belongs_to :production_stage
+  belongs_to :item
 end

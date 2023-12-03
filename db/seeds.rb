@@ -31,10 +31,12 @@ Location.create!(**default_location_attrs) if Location.count.zero?
 location = Location.find_by(**default_location_attrs)
 
 if ProductionStage.count.zero?
-  prod_stg_one = ProductionStage.create!(name: 'Production Stage One', plan:, location:)
-  prod_stg_two = ProductionStage.create!(name: 'Production Stage Two', plan:, location:)
-  i_cop_ore = Item.find_by(name: 'Copper Ore')
-  prod_stg_one_output_one = ProductionStageOutput.create!(production_stage: prod_stg_one, item: i_cop_ore, rate: 600.0)
-  prod_stg_two_input_one = ProductionStageInput.create!(production_stage: prod_stg_two, item: i_cop_ore, rate: 400.0)
-  prod_conn_one = ProductionStageConnection.create!(source: prod_stg_one_output_one, destination: prod_stg_two_input_one)
+  ActiveRecord::Base.transaction do
+    prod_stg_one = ProductionStage.create!(name: 'Production Stage One', plan:, location:)
+    prod_stg_two = ProductionStage.create!(name: 'Production Stage Two', plan:, location:)
+    i_cop_ore = Item.find_by(name: 'Copper Ore')
+    prod_stg_one_output_one = ProductionStageOutput.create!(production_stage: prod_stg_one, item: i_cop_ore, rate: 600.0)
+    prod_stg_two_input_one = ProductionStageInput.create!(production_stage: prod_stg_two, item: i_cop_ore, rate: 400.0)
+    prod_conn_one = ProductionStageConnection.create!(source: prod_stg_one_output_one, destination: prod_stg_two_input_one)
+  end
 end

@@ -20,4 +20,22 @@ class ProductionStage < ApplicationRecord
   belongs_to :location
   has_many :production_stage_inputs
   has_many :production_stage_outputs
+
+  def sources
+    ProductionStageConnection.where(destination: production_stage_inputs).map(&:source)
+  end
+
+  def destinations
+    ProductionStageConnection.where(source: production_stage_outputs).map(&:destination)
+  end
+
+  def connections
+    @connections ||= begin
+      # ProductionStageConnection.where(source: production_stage_outputs).or(ProductionStageConnection.where())
+    end
+  end
+
+  def production_line
+    @production_line ||= ProductionLine.new(production_stage: self)
+  end
 end
