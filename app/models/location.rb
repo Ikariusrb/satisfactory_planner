@@ -14,4 +14,5 @@
 #  index_locations_on_plan_id_and_name  (plan_id,name) UNIQUE
 #
 class Location < ApplicationRecord
+  belongs_to :plan
 end
